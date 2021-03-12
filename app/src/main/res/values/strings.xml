@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Oceanstreach</string>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar"></style>
+</resources>

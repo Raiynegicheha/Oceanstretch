@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menuhome"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:showAsAction="always"/>
+    <item android:id="@+id/menuaccount"
+        android:icon="@drawable/ic_account_circle"
+        android:title="Account"
+        app:showAsAction="always"/>
+
+</menu>

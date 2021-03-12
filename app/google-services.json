@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "858065811373",
+    "project_id": "oceanstretch-eca6e",
+    "storage_bucket": "oceanstretch-eca6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858065811373:android:a8c12077a8485923be1324",
+        "android_client_info": {
+          "package_name": "com.raiyne.oceanstreach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858065811373-0i0gf839v4rc16unhp3uj1e5rsb6vm5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFn3m8KMO-6GVpVUUq7ujy-AiphadDunw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858065811373-0i0gf839v4rc16unhp3uj1e5rsb6vm5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
