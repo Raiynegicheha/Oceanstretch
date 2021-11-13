@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Oceanstreach">
-        <activity android:name=".AccountActivity"></activity>
-        <activity android:name=".TrialActivity"></activity>
+        <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".UploadimageActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".TrialActivity" />
         <activity android:name=".RecyclerViewActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

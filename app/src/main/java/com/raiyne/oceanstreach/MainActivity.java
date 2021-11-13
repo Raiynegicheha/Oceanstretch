@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void poultry(View view) {
         String category = "poultry";
         Intent recy = new Intent(getApplicationContext(),RecyclerViewActivity.class);

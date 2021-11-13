@@ -1,47 +1,62 @@
 package com.raiyne.oceanstreach;
 
-public class Animals {
-    String name,email,contact,description;
 
-    public Animals(String name, String email, String contact, String description) {
-        this.name = name;
-        this.email = email;
-        this.contact = contact;
-        this.description = description;
+public class Animals {
+    String Name,Email,Number,Description;
+    String imageurl;
+
+    public Animals(){
+
     }
 
-    public Animals() {
+    public Animals(String Name, String Email, String Number, String Description, String imageURL) {
+        this.Name = Name;
+        this.Email = Email;
+        this.Number = Number;
+        this.Description = Description;
+        this.imageurl = imageURL;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
-    public String getContact() {
-        return contact;
+    public String getNumber() {
+        return Number;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setNumber(String number) {
+        Number = number;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        Description = description;
     }
+
+
+
 }

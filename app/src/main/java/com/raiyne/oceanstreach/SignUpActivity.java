@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,16 +14,20 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText user,email,pass,phone;
     Button register,login;
+    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up);
 
 
@@ -30,9 +35,10 @@ public class SignUpActivity extends AppCompatActivity {
         email = findViewById(R.id.edt_email);
         pass= findViewById(R.id.edt_password);
         phone = findViewById(R.id.edt_phonenumber);
-
         register= findViewById(R.id.btn_register);
         login = findViewById(R.id.btn_login);
+        mAuth = FirebaseAuth.getInstance();
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

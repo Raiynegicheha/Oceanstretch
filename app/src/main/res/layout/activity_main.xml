@@ -71,8 +71,8 @@
                android:contentDescription="@string/app_name"
                android:padding="6dp"
                android:src="@drawable/ic_search"
-               android:tint="@color/primary"
-               android:id="@+id/iv_search_icon"/>
+               android:id="@+id/iv_search_icon"
+               app:tint="@color/primary" />
 
 
        </LinearLayout>

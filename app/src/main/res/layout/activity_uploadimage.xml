@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadimageActivity">
+
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="236dp" />
+
+    <EditText
+        android:id="@+id/txtdata"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:hint="animal name"
+        android:inputType="" />
+
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/txtdata"
+        android:inputType="textEmailAddress"
+        android:hint="personal email"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/txtnumber"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:hint="Phone number"
+       android:layout_below="@id/txtemail"
+        android:inputType="number"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/txtdescription"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/txtnumber"
+        android:inputType="textLongMessage"
+        android:hint="Description of the animal."
+        android:gravity="center" />
+
+
+    <Button
+        android:id="@+id/btnbrowse"
+        android:layout_width="214dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/txtdescription"
+
+        android:layout_marginTop="20dp"
+        android:text="Browse" />
+
+    <Button
+        android:id="@+id/btnupload"
+        android:layout_width="194dp"
+        android:layout_height="61dp"
+        android:layout_marginLeft="220dp"
+        android:layout_below="@id/txtdescription"
+        android:layout_marginTop="20dp"
+        android:text="Upload" />
+
+</RelativeLayout>

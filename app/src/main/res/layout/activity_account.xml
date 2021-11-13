@@ -34,7 +34,8 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_appname">
+        android:layout_below="@id/tv_appname"
+        android:id="@+id/btnradio">
         
         <RadioButton
             android:layout_width="wrap_content"
@@ -62,4 +63,14 @@
             android:text="Wild"
             android:textSize="28dp"/>
     </RadioGroup>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnradio"
+        android:text="Add description."
+        android:id="@+id/btnaddpost">
+
+    </Button>
+
+
 </RelativeLayout>
