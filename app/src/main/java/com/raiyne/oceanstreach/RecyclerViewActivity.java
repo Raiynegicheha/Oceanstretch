@@ -25,14 +25,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class RecyclerViewActivity extends AppCompatActivity {
+public class  RecyclerViewActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
     DatabaseReference database;
     EditText myedtsearchbar;
-    ArrayList<Animals> animal;
+    private List<Animals> animal;
     CustomAdapter adapter;
     ImageView myimage;
     ProgressDialog dialog;
@@ -88,7 +89,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         animal = new ArrayList<>();
 
-        adapter = new CustomAdapter(this, animal);
+        adapter = new CustomAdapter(this, (ArrayList<Animals>) animal);
         recyclerView.setAdapter(adapter);
 
         database = FirebaseDatabase.getInstance().getReference("Images");
@@ -102,12 +103,14 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     animal.add(animals);
                     //animals.setImageurl(snapshot.child("imageURL").getValue().toString());
                 }
+
                 adapter.notifyDataSetChanged();
 
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+                //Toast.makeText(RecyclerViewActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

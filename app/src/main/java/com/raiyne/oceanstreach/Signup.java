@@ -3,11 +3,11 @@ package com.raiyne.oceanstreach;
 public class Signup {
     String name,email,password,phonecontact;
 
-    public Signup(String name, String email, String contact, String description) {
+    public Signup(String name, String email, String phonecontact, String password) {
         this.name = name;
         this.email = email;
-        this.password = contact;
-        this.phonecontact = description;
+        this.password = password;
+        this.phonecontact = phonecontact;
     }
 
     public Signup() {

@@ -98,7 +98,7 @@ app:cardUseCompatPadding="true"
             android:scaleType="centerCrop"
             android:layout_height="200dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_home"/>
+            android:src="@drawable/bird"/>
         <TextView
             android:id="@+id/tv_name"
             android:textSize="25dp"

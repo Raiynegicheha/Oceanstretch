@@ -1,5 +1,6 @@
 package com.raiyne.oceanstreach;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,11 +11,13 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,7 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 
-public class UploadimageActivity extends AppCompatActivity {
+public class  UploadimageActivity extends AppCompatActivity {
 
     Button btnbrowse, btnupload;
     EditText txtdata,txtemail,txtnumber,txtdescription ;
@@ -36,6 +39,7 @@ public class UploadimageActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     int Image_Request_Code = 7;
     ProgressDialog progressDialog ;
+    ProgressBar mprogressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,7 @@ public class UploadimageActivity extends AppCompatActivity {
         txtdescription = findViewById(R.id.txtdescription);
         imgview = (ImageView)findViewById(R.id.image_view);
         progressDialog = new ProgressDialog(UploadimageActivity.this);// context name as per your project name
+        mprogressbar = findViewById(R.id.progressBar);
 
 
         btnbrowse.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +92,11 @@ public class UploadimageActivity extends AppCompatActivity {
 
             FilePathUri = data.getData();
 
+            //set image to the image view before uploading.
+            //test it tomorrow 
+            imgview.setImageURI(FilePathUri);
+
+/*
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), FilePathUri);
                 imgview.setImageBitmap(bitmap);
@@ -94,7 +104,7 @@ public class UploadimageActivity extends AppCompatActivity {
             catch (IOException e) {
 
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 
@@ -105,6 +115,12 @@ public class UploadimageActivity extends AppCompatActivity {
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
 
+    }
+    //Get extension from our file
+    private String getFileExtension(Uri uri){
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
 
@@ -126,6 +142,7 @@ public class UploadimageActivity extends AppCompatActivity {
                             String TempDescription = txtdescription.getText().toString().trim();
 
                             progressDialog.dismiss();
+                            //mprogressbar.setProgress(0);
                             Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
                             @SuppressWarnings("VisibleForTests")
                             uploadinfo imageUploadInfo = new uploadinfo(TempImageName,
@@ -138,7 +155,18 @@ public class UploadimageActivity extends AppCompatActivity {
                             startActivity(new Intent(UploadimageActivity.this,MainActivity.class));
                             finish();
                         }
-                    });
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(UploadimageActivity.this, e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                    double progress = (100.0 * snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
+                    mprogressbar.setProgress((int) progress);
+                }
+            });
         }
         else {
 
